@@ -3,7 +3,7 @@ name: Generate Snake Contribution Graph
 on:
   schedule:
     - cron: "0 0 * * *" # Runs daily at midnight UTC
-  workflow_dispatch:     # Allows manual triggering
+  workflow_dispatch:
 
 jobs:
   build:
@@ -14,10 +14,10 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Generate Snake Animation
-        uses: Platane/snk@v2
+        uses: Platane/snk/svg-only@v3
         with:
           github_user_name: michealtimjoseph
-          outputs: dist/snake.svg   # ✅ fixed outputs path
+          outputs: dist/snake.svg
 
       - name: Upload Snake Animation
         run: |
